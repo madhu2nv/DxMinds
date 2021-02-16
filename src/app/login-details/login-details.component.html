@@ -1,0 +1,176 @@
+<nav class="navbar navbar-expand-sm " style="background-color: #66286b;height: 75px;">
+  <form class="form-inline container" style="text-align: center;">
+    <div>
+      <label style="color: white;">Logo</label>
+    </div>
+    <div class="wrap">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="Search for gift voucher">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <div style="float: right;color: #ffff;">
+      <div class="dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown">Admin</span>
+      </div>
+    </div>
+
+  </form>
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-4 col-xm-12 col-xl-5">
+      <div class="card cardLeft">
+        <form [formGroup]="empForm" (ngSubmit)="onSubmit()" *ngIf="addDetails == true">
+
+          <div style="padding: 40px;">
+            <div class="form-group">
+              <input class="form-control" type="text" name="name" formControlName="Name" [(ngModel)]="name"
+                placeholder="Name" class="form-control fildsClass"
+                [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+              <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                <div *ngIf="f.Name.errors.required">Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="number" name="num" formControlName="MobNumber" [(ngModel)]="mNumber"
+                (change)="numMessage()" placeholder="Mobile Number" class="form-control fildsClass"
+                [ngClass]="{ 'is-invalid': submitted && f.MobNumber.errors }" (change)="numMessage()" />
+              <div *ngIf="submitted && f.MobNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.MobNumber.errors.required"> 10 Digit Mobile Number is required</div>
+              </div>
+              <div class="errMsg">
+                <div>{{showErrPnum}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" formControlName="email" [(ngModel)]="eMail"
+                placeholder="Email" class="form-control fildsClass"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" (change)="emailMassge()"/>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Vaild Email is required</div>
+              </div>
+              <div class="errMsg">
+                <div>{{showErrEmail}}</div>
+              </div>
+            </div><br>
+
+            <button type="submit" class="btn btn-lg" class="AddStyle">Add</button>
+            <div class="statusMsg" >
+              <div>{{statusMessage}}</div>
+            </div>
+
+
+          </div>
+        </form>
+
+        <form [formGroup]="empFormUpdate" (ngSubmit)="onSubmitData()" *ngIf="updateDetails">
+
+          <div style="padding: 40px;">
+            <div class="form-group">
+              <input class="form-control" type="text" name="name" formControlName="Name" [(ngModel)]="name"
+                placeholder="Name" class="form-control fildsClass"
+                [ngClass]="{ 'is-invalid': submitted && g.Name.errors }" />
+              <div *ngIf="submitted && g.Name.errors" class="invalid-feedback">
+                <div *ngIf="g.Name.errors.required">Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="number" name="num" formControlName="MobNumber" [(ngModel)]="mNumber"
+                placeholder="Mobile Number" (change)="numMessage()" class="form-control fildsClass"
+                [ngClass]="{ 'is-invalid': submitted && g.MobNumber.errors }" />
+              <div *ngIf="submitted && g.MobNumber.errors" class="invalid-feedback">
+                <div *ngIf="g.MobNumber.errors.required">10 Digit Mobile Number is required</div>
+              </div>
+              <div class="errMsg">
+                <div>{{showErrPnum}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" formControlName="email" [(ngModel)]="eMail"
+                placeholder="Email" class="form-control fildsClass" (change)="emailMassge()"
+                [ngClass]="{ 'is-invalid': submitted && g.email.errors }" />
+              <div *ngIf="submitted && g.email.errors" class="invalid-feedback">
+                <div *ngIf="g.email.errors.required">Vaild Email is required</div>
+              </div>
+              <div class="errMsg">
+                <div>{{showErrEmail}}</div>
+              </div>
+            </div><br>
+
+            <!-- <button type="submit" class="btn btn-lg" *ngIf="addDetails == true" class="AddStyle">Add</button> -->
+            <button type="submit" class="btn btn-lg" *ngIf="updateDetails == true" class="AddStyle">update</button>
+            <div class="statusMsg" >
+              <div>{{statusMessage}}</div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-8 col-xm-12 col-xl-7">
+      <label>Select Field to Filter</label>
+      <select [(ngModel)]="fieldOptions">
+        <option value="All">All</option>
+        <option value="Name">Name</option>
+        <option value="mobile_Num"> Mobile Number</option>
+        <option value="Email">Email</option>
+      </select>&nbsp;&nbsp;&nbsp;
+      <input type="input" class="form-cotrol" placeholder="enter selected filed" [(ngModel)]="filterBy">&nbsp;
+
+      <img src="../../assets/filter-filled-tool-symbol.png"  width="25px" (click)="filterByEmpDetails(fieldOptions,filterBy)">
+      <div class="card cardRight">
+
+        <table class="table ">
+          <thead>
+            <tr class="brd">
+              <th>Name <img src="../../assets/sort.png" width="20px" (click)="sortName()"></th>
+              <th>Mobile Number <img src="../../assets/sort.png" width="20px" (click)="sortPhoneNum()"></th>
+              <th>Email <img src="../../assets/sort.png" width="20px" (click)="sortEmail()"></th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of pageOfItems">
+              <td>{{data.Name}}</td>
+              <td>{{data.Mobile_Number}}</td>
+              <td>{{data.Email}}</td>
+              <td>
+                <img src="../../assets/bx_bx-message-square-edit.png" (click)="editfileds(data)"> &nbsp;&nbsp;&nbsp;
+                <img src="../../assets/ant-design_delete-outlined.png" (click)="deleteEmpDetails(data)">
+
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="footer pb-0 pt-3">
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+              <a routerLink [queryParams]="{ page: 1 }" class="page-link">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+              <a routerLink [queryParams]="{ page: pager.currentPage - 1 }" class="page-link">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+              class="page-item number-item">
+              <a routerLink [queryParams]="{ page: page }" class="page-link">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+              <a routerLink [queryParams]="{ page: pager.currentPage + 1 }" class="page-link">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+              <a routerLink [queryParams]="{ page: pager.totalPages }" class="page-link">Last</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,244 @@
+.fildsClass {
+	border-radius: 10px;
+	margin: 10px;
+	width: 100%;
+	padding: 10px;
+	box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
+	font-weight: 600;
+}
+
+thead>tr{
+  background: #66286b;
+  color: white;
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  text-align: center;
+}
+tbody  {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  text-align: center;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+
+}
+thead {
+  width: calc( 101.4% - 0.6em )
+}
+.errMsg{
+	color : red;
+	font-size: small;
+}
+table tr th,
+table tr {
+	border-right: 1px solid #66286b;
+	border-bottom: 1px solid #bbb;
+	height: 50px;
+}
+
+table tr:first-child th:first-child {
+	border-top-left-radius: 6px;
+}
+
+table tr:first-child th:last-child {
+	border-top-right-radius: 6px;
+}
+
+table tr:last-child td:first-child {
+	border-bottom-left-radius: 6px;
+}
+
+table tr:last-child td:last-child {
+	border-bottom-right-radius: 6px;
+}
+
+
+
+.form-group {
+	height: 70px;
+}
+
+.search {
+	width: 100%;
+	position: relative;
+	display: flex;
+	font-size: small
+}
+
+.searchTerm {
+	width: 100%;
+	border-right: none;
+	padding: 5px;
+	height: 36px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	color: white;
+}
+
+
+.searchButton {
+	width: 40px;
+	height: 36px;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+
+
+.wrap {
+	width: 30%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 40px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	float: right;
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
+	.cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+		height: 80vh;
+  }
+  .AddStyle {
+	width: 30%;
+	background-color: #66286b;
+	color: white;
+	border-radius: 10px;
+	height: 40px;
+}
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 108vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+		/* height: 137vh; */
+  }
+  .AddStyle {
+	width: 60%;
+	background-color: #66286b;
+	color: white;
+	border-radius: 10px;
+	height: 40px;
+}
+}
+
+@media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+		/* height: 80vh; */
+  }
+  .AddStyle {
+	width: 60%;
+	background-color: #66286b;
+	color: white;
+	border-radius: 10px;
+	height: 40px;
+}
+}
+
+
+@media screen and (min-device-width: 426px) and (max-device-width: 575px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+	height: 204vh;
+  }
+  .AddStyle {
+	width: 30%;
+	background-color: #66286b;
+	color: white;
+	border-radius: 10px;
+	height: 40px;
+}
+}
+
+@media screen and (min-device-width: 576px) and (max-device-width: 767px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 204vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+		height: 204vh;
+  }
+  .AddStyle {
+	width: 100%;
+	background-color: #66286b;
+	color: white;
+	border-radius: 10px;
+	height: 40px;
+}
+}
+
+@media screen and (min-device-width: 0px) and (max-device-width: 425px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+    margin-bottom: 20px;
+	}
+  .cardRight{
+    border-radius: 20px;
+    height: 134vh;
+  }
+}
+
+@media screen and (min-device-width: 1441px) and (max-device-width: 2560px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+ 
+	}
+  .cardRight{
+    border-radius: 20px;
+    height: 80vh;
+		
+  }
+}
+
+@media (min-device-width: 2560px) and (max-device-width: 3060px) {
+  .cardLeft {
+		border-radius: 20px;
+		height: 80vh;
+	}
+  .cardRight{
+    border-radius: 20px;
+		height: 80vh;
+  }
+}
+
+.statusMsg{
+	color: #00ff9e;
+    font-size: large;
+	float: right;
+	font-weight: bolder;
+}
